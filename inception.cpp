@@ -4,7 +4,14 @@
 #include <locale>
 
 main(){
-	int i=0,j,n=30,m=30,a[30][30];
+	setlocale(LC_ALL, "Russian");
+	
+	int i=0,j,n,m;
+	printf("¬ведите n ");
+	scanf("%d",n);
+	printf("¬ведите m ");
+	scanf("%d",m);
+	int a[n][m];
 	for(i=0;i<n;i++){
 		for(j=0;j<m;j++){
 			a[i][j]=1;
@@ -12,5 +19,6 @@ main(){
 		}
 		puts("\n");
 	}
+	
 return 0;
 }
