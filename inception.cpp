@@ -7,26 +7,39 @@
 #define WorldH 20
 #define WorldW 20
 
-int World[WorldH][WorldW]={0};
+struct Point{
+	unsigned live:1;
+};
+
+Point World[WorldH][WorldW]={0};
+
 void initWorld(){
-		for(int h=0;h<WorldW;h++){
-			for(int w=0;w<WorldH;w++){
-				printf("%d ",World[h][w]);
+	for(int h=0;h<WorldW;h++){
+		for(int w=0;w<WorldH;w++){
+			int rn=rand()%9999;
+			if(rn%2==0){
+				World[h][w].live=1;
+			}else{
+				World[h][w].live=0;
+				}
+		}
+	}
+}
+void printWorld(){
+	for(int h=0;h<WorldW;h++){
+		for(int w=0;w<WorldH;w++){
+			if(World[h][w].live==1){
+				printf("o");
+			}else{
+				printf(" ");
+			}
 		}
 		printf("\n");
 	}
 }
-void random(){
-	bool justice=1;
-		for(int h=0;h<WorldW;h++){
-			for(int w=0;w<WorldH;w++){
-				World[h][w]=rand()%2;
-		}
-	}
-}
 main(){
 srand(time(0));
-random();
 initWorld();
+printWorld();
 return 0;
 }
