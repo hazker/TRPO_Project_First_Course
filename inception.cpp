@@ -16,8 +16,8 @@ Point World[WorldH][WorldW]={0};
 void initWorld(){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
-			int rn=rand()%9999;
-			if(rn%2==0){
+			int rn=rand()%2;
+			if(rn==1){
 				World[h][w].live=1;
 			}else{
 				World[h][w].live=0;
