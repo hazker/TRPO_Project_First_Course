@@ -38,6 +38,18 @@ void printWorld(){
 	}
 }
 
+unsigned int count (Point World[][WorldH]){
+	unsigned int count=0;
+	unsigned i,j;
+	for (i=0;i<WorldH;i++){
+		for (j=0;j<World; j++){
+			if (World[i][j].live=1)
+			count++;
+		}
+	}
+	return count;
+}
+
 main(){
 srand(time(0));
 initWorld();
