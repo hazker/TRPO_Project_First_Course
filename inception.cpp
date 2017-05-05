@@ -50,7 +50,6 @@ unsigned int Count (Point World[][WorldH]){
 	}
 	return count;
 }
-
 void CopyPaste(){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
@@ -58,7 +57,6 @@ void CopyPaste(){
 		}
 	}
 }
-
 int life(){
 	int l=0;
 	for(int h=0;h<WorldW;h++){
@@ -116,7 +114,6 @@ int life(){
 		return l;
 	}
 }*/
-
 main(){
 srand(time(0));
 //int l=0;
