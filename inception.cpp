@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <conio.h>
-#include <math.h>
 #include <cstdlib>//random
-#include <ctime>
+#include <time.h>
+//#include <windows.h>
 
 #define WorldH 40
 #define WorldW 40
@@ -110,19 +110,20 @@ int life(Point world[WorldW][WorldH]){
 		return l;
 	}
 }*/
-main(){
+int main(){
 srand(time(0));
 //int l=0;
 initWorld(World);
-do{
-	CopyPaste();
-	PrintWorld(CopyWorld);
-	system("PAUSE");
-	life(World);
-	//l=L(World,CopyWorld);
-	puts("\n");
-//	printf("%d", l);
-}while(Count!=0);
+	do{
+		CopyPaste();
+		PrintWorld(CopyWorld);
+		//system("pause>nul");
+		life(World);
+		//l=L(World,CopyWorld);
+		//Sleep (1000);
+		system("cls");
+		//puts("\n");
+	}while(Count!=0);
 
 return 0;
 }

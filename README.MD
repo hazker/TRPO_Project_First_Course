@@ -1,1 +1,1 @@
-empty
+Game "Life"
