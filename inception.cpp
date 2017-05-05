@@ -4,8 +4,8 @@
 #include <cstdlib>//random
 #include <ctime>
 
-#define WorldH 20
-#define WorldW 20
+#define WorldH 40
+#define WorldW 40
 
 struct Point{
 	unsigned live:1;
@@ -26,7 +26,7 @@ void initWorld(){
 		}
 	}
 }
-void printWorld(Point World[20][20]){
+void PrintWorld(Point World[WorldH][WorldW]){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
 			if(World[h][w].live==1){
@@ -39,7 +39,7 @@ void printWorld(Point World[20][20]){
 	}
 }
 
-unsigned int count (Point World[][WorldH]){
+unsigned int Count (Point World[][WorldH]){
 	unsigned int count=0;
 	unsigned i,j;
 	for (i=0;i<WorldH;i++){
@@ -51,7 +51,7 @@ unsigned int count (Point World[][WorldH]){
 	return count;
 }
 
-void CopyPast(){
+void CopyPaste(){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
 			CopyWorld[h][w]=World[h][w];
@@ -59,68 +59,77 @@ void CopyPast(){
 	}
 }
 
-void life(){
+int life(){
 	int l=0;
-		for(int h=0;h<WorldW;h++){
-			for(int w=0;w<WorldH;w++){
-				l=0;
-			if(CopyWorld[h+1][w+1].live==1){
+	for(int h=0;h<WorldW;h++){
+		for(int w=0;w<WorldH;w++){
+			l=0;
+			if(World[h+1][w+1].live==1){
 				l++;
 			}
-			if(CopyWorld[h][w+1].live==1){
+			if(World[h][w+1].live==1){
 				l++;
 			}
-			if(CopyWorld[h+1][w].live==1){
+			if(World[h+1][w].live==1){
 				l++;
 			}
-			if(CopyWorld[h-1][w+1].live==1){
+			if(World[h-1][w+1].live==1){
 				l++;
 			}
-			if(CopyWorld[h+1][w-1].live==1){
+			if(World[h+1][w-1].live==1){
 				l++;
 			}
-			if(CopyWorld[h-1][w].live==1){
+			if(World[h-1][w].live==1){
 				l++;
 			}
-			if(CopyWorld[h][w-1].live==1){
+			if(World[h][w-1].live==1){
 				l++;
 			}
-			if(CopyWorld[h][w+1].live==1){
+			if(World[h][w+1].live==1){
 				l++;
 			}
-			if(CopyWorld[h][w+1].live==1){
+			if(World[h][w+1].live==1){
 				l++;
 			}
-			if(CopyWorld[h-1][w-1].live==1){
+			if(World[h-1][w-1].live==1){
 				l++;
 			}
-			if(l==3 && CopyWorld[h][w].live==0){
+			if(l==3 && World[h][w].live==0){
 				World[h][w].live=1;
 			}
-			if((l==2 || l==3) && CopyWorld[h][w].live==1){
+			if((l==2 || l==3) && World[h][w].live==1){
 				World[h][w].live=1;
-			}
-			else{
+			}else{
 				World[h][w].live=0;
 			}
 		}
 	}
 }
-
+/*int L(Point World[][WorldW],Point CopyWorld[][WorldW]){
+	int l=0;
+	for(int h=0;h<WorldW;h++){
+		for(int w=0;w<WorldH;w++){
+			if(World[h][w].live==1 && CopyWorld[h][w].live==1){
+				l++;
+			}
+		}
+		return l;
+	}
+}*/
 
 main(){
 srand(time(0));
+//int l=0;
 initWorld();
-printWorld(World);
-puts("\n");
-while(1){
-CopyPast();
-printWorld(CopyWorld);
-system("PAUSE");
-	puts("\n");
-	life();
-	printWorld(World);
+do{
+	CopyPaste();
+	PrintWorld(CopyWorld);
 	system("PAUSE");
-}
+	life();
+	//l=L(World,CopyWorld);
+	puts("\n");
+//	printf("%d", l);
+}while(Count!=0);
+
 return 0;
 }
