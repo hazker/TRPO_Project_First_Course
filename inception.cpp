@@ -14,22 +14,22 @@ struct Point{
 Point World[WorldH][WorldW]={0};
 Point CopyWorld[WorldH][WorldW]={0};
 
-void initWorld(){
+int initWorld(Point world[WorldH][WorldW]){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
 			int rn=rand()%2;
 			if(rn==1){
-				World[h][w].live=1;
+				world[h][w].live=1;
 			}else{
-				World[h][w].live=0;
+				world[h][w].live=0;
 				}
 		}
 	}
 }
-void PrintWorld(Point World[WorldH][WorldW]){
+void PrintWorld(Point world[WorldH][WorldW]){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
-			if(World[h][w].live==1){
+			if(world[h][w].live==1){
 				printf("#");
 			}else{
 				printf(" ");
@@ -39,13 +39,14 @@ void PrintWorld(Point World[WorldH][WorldW]){
 	}
 }
 
-unsigned int Count (Point World[][WorldH]){
-	unsigned int count=0;
-	unsigned i,j;
+int Count (Point world[WorldW][WorldH]){
+	int count=0;
+	int i,j;
 	for (i=0;i<WorldH;i++){
 		for (j=0;j<WorldW; j++){
-			if (World[i][j].live=1)
-			count++;
+			if (world[i][j].live=1){
+				count++;
+			}
 		}
 	}
 	return count;
@@ -57,48 +58,43 @@ void CopyPaste(){
 		}
 	}
 }
-int life(){
+int life(Point world[WorldW][WorldH]){
 	int l=0;
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
 			l=0;
-			if(World[h+1][w+1].live==1){
+			if(world[h-1][w-1].live==1){
 				l++;
 			}
-			if(World[h][w+1].live==1){
+			if(world[h][w-1].live==1){
 				l++;
 			}
-			if(World[h+1][w].live==1){
+			if(world[h+1][w-1].live==1){
 				l++;
 			}
-			if(World[h-1][w+1].live==1){
+			if(world[h+1][w].live==1){
 				l++;
 			}
-			if(World[h+1][w-1].live==1){
+			if(world[h+1][w+1].live==1){
 				l++;
 			}
-			if(World[h-1][w].live==1){
+			if(world[h][w+1].live==1){
 				l++;
 			}
-			if(World[h][w-1].live==1){
+			if(world[h-1][w+1].live==1){
 				l++;
 			}
-			if(World[h][w+1].live==1){
+			if(world[h-1][w].live==1){
 				l++;
 			}
-			if(World[h][w+1].live==1){
-				l++;
-			}
-			if(World[h-1][w-1].live==1){
-				l++;
-			}
+			//////////////////////////
 			if(l==3 && World[h][w].live==0){
-				World[h][w].live=1;
+				world[h][w].live=1;
 			}
-			if((l==2 || l==3) && World[h][w].live==1){
-				World[h][w].live=1;
+			if((l==2 || l==3) && world[h][w].live==1){
+				world[h][w].live=1;
 			}else{
-				World[h][w].live=0;
+				world[h][w].live=0;
 			}
 		}
 	}
@@ -117,12 +113,12 @@ int life(){
 main(){
 srand(time(0));
 //int l=0;
-initWorld();
+initWorld(World);
 do{
 	CopyPaste();
 	PrintWorld(CopyWorld);
 	system("PAUSE");
-	life();
+	life(World);
 	//l=L(World,CopyWorld);
 	puts("\n");
 //	printf("%d", l);
