@@ -1,11 +1,10 @@
 #include <stdio.h>
-#include <conio.h>
 #include <cstdlib>//random
-#include <time.h>
-//#include <windows.h>
+#include <ctime>
+#include <windows.h>
 
-#define WorldH 40
-#define WorldW 40
+#define WorldH 20
+#define WorldW 20
 
 struct Point{
 	unsigned live:1;
@@ -17,7 +16,7 @@ Point CopyWorld[WorldH][WorldW]={0};
 int initWorld(Point world[WorldH][WorldW]){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
-			int rn=rand()%2;
+			int rn=rand()%6;
 			if(rn==1){
 				world[h][w].live=1;
 			}else{
@@ -44,7 +43,7 @@ int Count (Point world[WorldW][WorldH]){
 	int i,j;
 	for (i=0;i<WorldH;i++){
 		for (j=0;j<WorldW; j++){
-			if (world[i][j].live=1){
+			if (world[i][j].live==1){
 				count++;
 			}
 		}
@@ -63,30 +62,30 @@ int life(Point world[WorldW][WorldH]){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
 			l=0;
-			if(world[h-1][w-1].live==1){
-				l++;
-			}
-			if(world[h][w-1].live==1){
-				l++;
-			}
-			if(world[h+1][w-1].live==1){
-				l++;
-			}
-			if(world[h+1][w].live==1){
-				l++;
-			}
-			if(world[h+1][w+1].live==1){
-				l++;
-			}
-			if(world[h][w+1].live==1){
-				l++;
-			}
-			if(world[h-1][w+1].live==1){
-				l++;
-			}
-			if(world[h-1][w].live==1){
-				l++;
-			}
+				if(world[h-1][w-1].live==1 && (h-1)>=0 && (w-1)>=0) {
+					l++;
+				}
+				if(world[h][w-1].live==1 && (w-1)>=0){
+					l++;
+				}
+				if(world[h+1][w-1].live==1 && (h+1)<=WorldH && (w-1)>=0){
+					l++;
+				}
+				if(world[h+1][w].live==1 && (h+1)<=WorldH){
+					l++;
+				}
+				if(world[h+1][w+1].live==1 && (h+1)<=WorldH && (w+1)<=WorldW){
+					l++;
+				}
+				if(world[h][w+1].live==1 && (w+1)<=WorldH){
+					l++;
+				}
+				if(world[h-1][w+1].live==1 && (h-1)>=0 && (w+1)>=0){
+					l++;
+				}
+				if(world[h-1][w].live==1 && (h-1)>=0 ){
+					l++;
+				}
 			//////////////////////////
 			if(l==3 && World[h][w].live==0){
 				world[h][w].live=1;
@@ -112,18 +111,21 @@ int life(Point world[WorldW][WorldH]){
 }*/
 int main(){
 srand(time(0));
-//int l=0;
+int l=0;
 initWorld(World);
+l=Count(World);
 	do{
 		CopyPaste();
 		PrintWorld(CopyWorld);
-		//system("pause>nul");
+	//	system("pause>nul");
 		life(World);
 		//l=L(World,CopyWorld);
-		//Sleep (1000);
+		Sleep(5);
 		system("cls");
 		//puts("\n");
-	}while(Count!=0);
+		l=Count(World);
+		printf("%d", l);
+	}while(l!=0);
 
 return 0;
 }
