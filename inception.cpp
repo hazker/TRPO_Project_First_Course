@@ -31,7 +31,7 @@ void PrintWorld(Point world[WorldH][WorldW]){
 			if(world[h][w].live==1){
 				printf("#");
 			}else{
-				printf(" ");
+				printf(".");
 			}
 		}
 		printf("\n");
@@ -57,6 +57,8 @@ void CopyPaste(){
 		}
 	}
 }
+
+
 int life(Point world[WorldW][WorldH]){
 	int l=0;
 	for(int h=0;h<WorldW;h++){
@@ -98,17 +100,7 @@ int life(Point world[WorldW][WorldH]){
 		}
 	}
 }
-/*int L(Point World[][WorldW],Point CopyWorld[][WorldW]){
-	int l=0;
-	for(int h=0;h<WorldW;h++){
-		for(int w=0;w<WorldH;w++){
-			if(World[h][w].live==1 && CopyWorld[h][w].live==1){
-				l++;
-			}
-		}
-		return l;
-	}
-}*/
+
 int main(){
 srand(time(0));
 int l=0;
@@ -120,11 +112,11 @@ l=Count(World);
 	//	system("pause>nul");
 		life(World);
 		//l=L(World,CopyWorld);
-		Sleep(5);
+		Sleep(1000);
 		system("cls");
 		//puts("\n");
 		l=Count(World);
-		printf("%d", l);
+		printf("Count alive points: %d\n", l);
 	}while(l!=0);
 
 return 0;
