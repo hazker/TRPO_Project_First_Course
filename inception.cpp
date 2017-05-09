@@ -16,13 +16,16 @@ Point CopyWorld[WorldH][WorldW]={0};
 int initWorld(Point world[WorldH][WorldW]){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
-			int rn=rand()%10;
+			int rn=rand()%2;
+			if(rn==1){
+				rn=rand()%3;
 			if(rn==1){
 				world[h][w].live=1;
 			}else{
 				world[h][w].live=0;
 				}
 		}
+	}
 	}
 }
 void PrintWorld(Point world[WorldH][WorldW]){
@@ -58,7 +61,6 @@ void CopyPaste(){
 	}
 }
 
-
 int life(Point world[WorldW][WorldH]){
 	int l=0;
 	for(int h=0;h<WorldW;h++){
@@ -88,15 +90,15 @@ int life(Point world[WorldW][WorldH]){
 				if(world[h-1][w].live==1 && (h-1)>=0 ){
 					l++;
 				}
-			//////////////////////////
 			if(l>2 && World[h][w].live==0){
 				world[h][w].live=1;
 			}
-			if((l>=2 || l>3) && world[h][w].live==1){
+			if((l>=2 && l<=3) && world[h][w].live==1){
 				world[h][w].live=1;
-			}else{
-				world[h][w].live=0;
 			}
+			if((l>=4  || l<=1) && world[h][w].live==1){
+				world[h][w].live=0;
+			}	
 		}
 	}
 	system("pause>nul");
