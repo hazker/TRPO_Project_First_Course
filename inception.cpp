@@ -16,7 +16,7 @@ Point CopyWorld[WorldH][WorldW]={0};
 int initWorld(Point world[WorldH][WorldW]){
 	for(int h=0;h<WorldW;h++){
 		for(int w=0;w<WorldH;w++){
-			int rn=rand()%6;
+			int rn=rand()%10;
 			if(rn==1){
 				world[h][w].live=1;
 			}else{
@@ -89,16 +89,17 @@ int life(Point world[WorldW][WorldH]){
 					l++;
 				}
 			//////////////////////////
-			if(l==3 && World[h][w].live==0){
+			if(l>2 && World[h][w].live==0){
 				world[h][w].live=1;
 			}
-			if((l==2 || l==3) && world[h][w].live==1){
+			if((l>=2 || l>3) && world[h][w].live==1){
 				world[h][w].live=1;
 			}else{
 				world[h][w].live=0;
 			}
 		}
 	}
+	system("pause>nul");
 }
 
 int main(){
@@ -112,12 +113,11 @@ l=Count(World);
 	//	system("pause>nul");
 		life(World);
 		//l=L(World,CopyWorld);
-		Sleep(1000);
+		Sleep(100);
 		system("cls");
 		//puts("\n");
 		l=Count(World);
 		printf("Count alive points: %d\n", l);
 	}while(l!=0);
-
 return 0;
 }
