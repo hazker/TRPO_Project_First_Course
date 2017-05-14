@@ -1,7 +1,7 @@
 #include <stdio.h>
 //#include <stdlib>
 #include <windows.h>
-#include "library.h"
+#include "library.cpp"
 
 int main() {
 	//srand(time(0));
@@ -14,7 +14,7 @@ int main() {
 		//system("pause>nul");
 		life(World);
 		//l=L(World,CopyWorld);
-		Sleep(100);
+		Sleep(900);
 		system("cls");
 		//puts("\n");
 		l = Count(World);

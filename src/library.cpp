@@ -12,7 +12,7 @@ void initWorld(Point world[WorldH][WorldW]) {
 		for (int w = 0; w<WorldH; w++) {
 			int rn = rand() % 2;
 			if (rn == 1) {
-				rn = rand() % 3;
+				rn = rand() % 7;
 				if (rn == 1) {
 					world[h][w].live = 1;
 				}
@@ -62,38 +62,38 @@ void life(Point world[WorldH][WorldW]) {
 	for (int h = 0; h<WorldW; h++) {
 		for (int w = 0; w<WorldH; w++) {
 			l = 0;
-			if (world[h - 1][w - 1].live == 1 && (h - 1) >= 0 && (w - 1) >= 0) {
+			if (CopyWorld[h - 1][w - 1].live == 1 && (h - 1) > 0 && (w - 1) > 0) {
 				l++;
 			}
-			if (world[h][w - 1].live == 1 && (w - 1) >= 0) {
+			if (CopyWorld[h][w - 1].live == 1 && (w - 1) > 0) {
 				l++;
 			}
-			if (world[h + 1][w - 1].live == 1 && (h + 1) <= WorldH && (w - 1) >= 0) {
+			if (CopyWorld[h + 1][w - 1].live == 1 && (h + 1) < WorldH && (w - 1) > 0) {
 				l++;
 			}
-			if (world[h + 1][w].live == 1 && (h + 1) <= WorldH) {
+			if (CopyWorld[h + 1][w].live == 1 && (h + 1) < WorldH) {
 				l++;
 			}
-			if (world[h + 1][w + 1].live == 1 && (h + 1) <= WorldH && (w + 1) <= WorldW) {
+			if (CopyWorld[h + 1][w + 1].live == 1 && (h + 1) < WorldH && (w + 1) < WorldW) {
 				l++;
 			}
-			if (world[h][w + 1].live == 1 && (w + 1) <= WorldH) {
+			if (CopyWorld[h][w + 1].live == 1 && (w + 1) < WorldH) {
 				l++;
 			}
-			if (world[h - 1][w + 1].live == 1 && (h - 1) >= 0 && (w + 1) >= 0) {
+			if (CopyWorld[h - 1][w + 1].live == 1 && (h - 1) > 0 && (w + 1) < WorldW) {
 				l++;
 			}
-			if (world[h - 1][w].live == 1 && (h - 1) >= 0) {
+			if (CopyWorld[h - 1][w].live == 1 && (h - 1) > 0) {
 				l++;
 			}
-			if (l>2 && World[h][w].live == 0) {
-				world[h][w].live = 1;
+			if (l>2 && CopyWorld[h][w].live == 0) {
+				World[h][w].live = 1;
 			}
-			if ((l >= 2 && l <= 3) && world[h][w].live == 1) {
-				world[h][w].live = 1;
+			if ((l >= 2 && l <= 3) && CopyWorld[h][w].live == 1) {
+				World[h][w].live = 1;
 			}
-			if ((l >= 4 || l <= 1) && world[h][w].live == 1) {
-				world[h][w].live = 0;
+			if ((l >= 4 || l <= 1) && CopyWorld[h][w].live == 1) {
+				World[h][w].live = 0;
 			}
 		}
 	}
