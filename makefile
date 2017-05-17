@@ -1,4 +1,4 @@
-CC               = g++
+CC               = gcc
 CFLAGS           = -Wall -Werror
 TEST_FLAGS       = -I src -I thirdparty -Wall -Werror
 EXECUTABLE       = bin/program
@@ -16,11 +16,11 @@ makedir:
 compile: $(SRC_BUILD_DIR)/main.o $(SRC_BUILD_DIR)/library.o
 	$(CC) $(SRC_BUILD_DIR)/main.o $(SRC_BUILD_DIR)/library.o -o $(EXECUTABLE)
 
-$(SRC_BUILD_DIR)/main.o: $(SRC_DIR)/main.cpp
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/main.cpp -o $(SRC_BUILD_DIR)/main.o
+$(SRC_BUILD_DIR)/main.o: $(SRC_DIR)/main.c
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/main.c -o $(SRC_BUILD_DIR)/main.o
 
-$(SRC_BUILD_DIR)/library.o: $(SRC_DIR)/library.cpp
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/library.cpp -o $(SRC_BUILD_DIR)/library.o
+$(SRC_BUILD_DIR)/library.o: $(SRC_DIR)/library.c
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/library.c -o $(SRC_BUILD_DIR)/library.o
 
 .PHONY : clean
 clean:

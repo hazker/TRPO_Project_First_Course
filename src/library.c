@@ -1,13 +1,11 @@
 #include <stdio.h>
-//#include <stdlib>//random
 #include <time.h>
-#include <windows.h>
 
 #include "library.h"
 
 
 
-void initWorld(Point world[WorldH][WorldW]) {
+void initWorld(struct Point world[WorldH][WorldW]) {
 	for (int h = 0; h<WorldW; h++) {
 		for (int w = 0; w<WorldH; w++) {
 			int rn = rand() % 2;
@@ -23,7 +21,7 @@ void initWorld(Point world[WorldH][WorldW]) {
 		}
 	}
 }
-void PrintWorld(Point world[WorldH][WorldW]) {
+void PrintWorld(struct Point world[WorldH][WorldW]) {
 	for (int h = 0; h<WorldW; h++) {
 		for (int w = 0; w<WorldH; w++) {
 			if (world[h][w].live == 1) {
@@ -37,7 +35,7 @@ void PrintWorld(Point world[WorldH][WorldW]) {
 	}
 }
 
-int Count(Point world[WorldH][WorldW]) {
+int Count(struct Point world[WorldH][WorldW]) {
 	int count = 0;
 	int i, j;
 	for (i = 0; i<WorldW; i++) {
@@ -57,7 +55,7 @@ void CopyPaste() {
 	}
 }
 
-void life(Point world[WorldH][WorldW]) {
+void life(struct Point world[WorldH][WorldW]) {
 	int l = 0;
 	for (int h = 0; h<WorldW; h++) {
 		for (int w = 0; w<WorldH; w++) {
