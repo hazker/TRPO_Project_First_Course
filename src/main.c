@@ -1,7 +1,7 @@
 #include <stdio.h>
-//#include <stdlib>
-#include <windows.h>
-#include "library.cpp"
+#include <time.h>
+
+#include "library.h"
 
 int main() {
 	//srand(time(0));
@@ -14,8 +14,8 @@ int main() {
 		//system("pause>nul");
 		life(World);
 		//l=L(World,CopyWorld);
-		Sleep(900);
-		system("cls");
+		
+		//system("cls");
 		//puts("\n");
 		l = Count(World);
 		printf("Count alive points: %d\n", l);
