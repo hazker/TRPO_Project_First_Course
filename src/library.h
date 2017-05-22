@@ -11,7 +11,7 @@ struct Point {
 struct Point World[WorldH][WorldW] = { 0 };
 struct Point CopyWorld[WorldH][WorldW] = { 0 };
 
-void initWorld(struct Point world[WorldH][WorldW]);
+int initWorld(struct Point world[WorldH][WorldW]);
 void PrintWorld(struct Point world[WorldH][WorldW]);
 int Count(struct Point world[WorldH][WorldW]);
 void CopyPaste();

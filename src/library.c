@@ -1,11 +1,11 @@
 #include <stdio.h>
 #include <time.h>
-
+#include <stdlib.h>
 #include "library.h"
 
 
 
-void initWorld(struct Point world[WorldH][WorldW]) {
+int initWorld(struct Point world[WorldH][WorldW]) {
 	for (int h = 0; h<WorldW; h++) {
 		for (int w = 0; w<WorldH; w++) {
 			int rn = rand() % 2;
@@ -20,6 +20,7 @@ void initWorld(struct Point world[WorldH][WorldW]) {
 			}
 		}
 	}
+	return 0;
 }
 void PrintWorld(struct Point world[WorldH][WorldW]) {
 	for (int h = 0; h<WorldW; h++) {

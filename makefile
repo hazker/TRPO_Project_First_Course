@@ -22,6 +22,22 @@ $(SRC_BUILD_DIR)/main.o: $(SRC_DIR)/main.c
 $(SRC_BUILD_DIR)/library.o: $(SRC_DIR)/library.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/library.c -o $(SRC_BUILD_DIR)/library.o
 
+mktest:
+	mkdir -p bin build/test
+
+test-compile: $(TEST_OBJ_DIR)/main.o $(TEST_OBJ_DIR)/library_test.o $(TEST_OBJ_DIR)/validation_test.o $(SRC_BUILD_DIR)/library.o
+	$(CC) $(TEST_OBJ_DIR)/main.o $(TEST_OBJ_DIR)/library_test.o $(TEST_OBJ_DIR)/validation_test.o $(SRC_BUILD_DIR)/library.o -o
+
+$(TEST_OBJ_DIR)/main.o: test/main.c
+	$(CC) $(TEST_FLAGS) -c test/main.c -o $(TEST_OBJ_DIR)/library_test.o
+
+$(TEST_OBJ_DIR)/library_test.o: test/library_test.c
+	$(CC) $(TEST_FLAGS) -c test/library_test.c -o $(TEST_OBJ_DIR)/library_test.o
+
+$(TEST_OBJ_DIR)/validation_test.o: test/validation_test.c
+	$(CC) $(TEST_FLAGS) -c test/validation_test.c -o $(TEST_OBJ_DIR)/validation_test.o
+
+
 .PHONY : clean
 clean:
 	rm -rf build/ bin/
