@@ -1,19 +1,17 @@
 #include <stdio.h>
-#include <locale.h>
 int var=0;
 int menu(){
 	while(1){
-		setlocale(LC_CTYPE,"rus");
 		system("cls");
-		printf("Меню\n");
-		printf("1.Играть\n");
-		printf("2.Правила игры\n");
-		printf("3.Выход\n");
-		printf("Выберете пункт меню: ");
+		printf("Menu\n");
+		printf("1.Play\n");
+		printf("2.Rules of the game\n");
+		printf("3.Exit\n");
+		printf("Select the menu item: ");
 		scanf("%d", &var);
 		if(var>0 && var<4)break;
 		else{
-			printf("Выбран неправильный пункт мнею, выберайте заного\n");
+			printf("The wrong menu item is selected, choose again\n");
 		}
 	}
 	return 0;
