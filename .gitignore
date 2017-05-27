@@ -2,3 +2,6 @@
 *.des
 *~
 *.f
+*.dat
+*.exe
+*.out
