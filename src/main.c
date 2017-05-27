@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <time.h>
-
+#include "struct.h"
 #include "library.h"
 
 int main() {
