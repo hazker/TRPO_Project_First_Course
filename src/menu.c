@@ -11,7 +11,8 @@ int menu(){
 		scanf("%d", &var);
 		if(var>0 && var<4)break;
 		else{
-			printf("The wrong menu item is selected, choose again\n");
+			printf("The wrong menu item is selected, press any button to continue\n");
+			system("pause>nul");
 		}
 	}
 	return 0;
