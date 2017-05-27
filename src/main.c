@@ -2,6 +2,7 @@
 #include <time.h>
 #include "struct.h"
 #include "library.h"
+#include "function.c""
 
 int main() {
 	srand(time(0));
