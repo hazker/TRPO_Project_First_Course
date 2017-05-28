@@ -8,12 +8,15 @@
 #include "function.c"
 #include "curse.c"
 #include "menu.c"
+#include "rules.c"
 
 int main() {
 	menu();
 	srand(time(0));
 	int l = 0;
+	while(1){
 	if(var==1){
+		system("cls");
 		initWorld(World);
 		l = Count(World);
 			do {
@@ -25,10 +28,16 @@ int main() {
 				//system("cls");
 				puts("\n");
 			} while (l != 0);
+			return 0;
 		}
 	if(var==2){
+		system("cls");
+		rules();
+		system("pause>nul");
+		menu();
 		}
 	if(var==3){
 		return 0;
 	}
+}
 }
