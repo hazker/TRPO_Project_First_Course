@@ -4,6 +4,9 @@ TEST_FLAGS       = -I src -I thirdparty -Wall -Werror
 EXECUTABLE       = bin/program
 SRC_BUILD_DIR    = build
 SRC_DIR          = src
+SRC_CFiles	 = src/C Files
+SRC_include	 = src/include
+SRC_source	 = src/source
 TEST_EXECUTABLE  = bin/test
 TEST_OBJ_DIR     = build/test
 
@@ -16,17 +19,17 @@ makedir:
 compile: $(SRC_BUILD_DIR)/main.o $(SRC_BUILD_DIR)/function.o $(SRC_BUILD_DIR)/life.o
 	$(CC) $(SRC_BUILD_DIR)/main.o $(SRC_BUILD_DIR)/function.o $(SRC_BUILD_DIR)/life.o -o $(EXECUTABLE)
 
-$(SRC_BUILD_DIR)/main.o: $(SRC_DIR)/main.c
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/main.c -o $(SRC_BUILD_DIR)/main.o
+$(SRC_BUILD_DIR)/main.o: $(SRC_source)/main.c
+	$(CC) $(CFLAGS) -c $(SRC_source)/main.c -o $(SRC_BUILD_DIR)/main.o
 
 #$(SRC_BUILD_DIR)/library.o: $(SRC_DIR)/library.h
 #	$(CC) $(CFLAGS) -c $(SRC_DIR)/library.h -o $(SRC_BUILD_DIR)/library.o
 
-$(SRC_BUILD_DIR)/function.o: $(SRC_DIR)/function.c
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/function.c -o $(SRC_BUILD_DIR)/function.o
+$(SRC_BUILD_DIR)/function.o: $(SRC_CFiles)/function.c
+	$(CC) $(CFLAGS) -c $(SRC_CFiles)/function.c -o $(SRC_BUILD_DIR)/function.o
 
-$(SRC_BUILD_DIR)/life.o: $(SRC_DIR)/life.c
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/life.c -o $(SRC_BUILD_DIR)/life.o
+$(SRC_BUILD_DIR)/life.o: $(SRC_CFiles)/life.c
+	$(CC) $(CFLAGS) -c $(SRC_CFiles)/life.c -o $(SRC_BUILD_DIR)/life.o
 
 #$(SRC_BUILD_DIR)/struct.o: $(SRC_DIR)/struct.h
 #	$(CC) $(CFLAGS) -c $(SRC_DIR)/struct.h -o $(SRC_BUILD_DIR)/struct.o
