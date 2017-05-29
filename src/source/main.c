@@ -1,14 +1,13 @@
 #include <stdio.h>
 #include <time.h>
-//#include <windows.h>
-//#include <windowsx.h>
 #include <stdlib.h>
 #include "library.h"
 
 int var=0;
 int main() {
 		while(1){
-		
+		getchar();
+		system("clear");
 		printf("Menu\n");
 		printf("1.Play\n");
 		printf("2.Rules of the game\n");
@@ -16,34 +15,32 @@ int main() {
 		printf("Select the menu item: ");
 		scanf("%d", &var);
 		if(var>0 && var<4)break;
-		else{
-			printf("The wrong menu item is selected, press any button to continue\n");
-			//system("pause>nul");
+		else{	getchar();
+			printf("The wrong menu item is selected, press enter to continue\n");
+			
 		}
 	}
-	//menu();
 	srand(time(0));
 	int l = 0;
 	while(1){
 	if(var==1){
-		system("cls");
+		system("clear");
 		initWorld(World);
 		l = Count(World);
 			do {
+
 				CopyPaste(CopyWorld,World);
 				PrintWorld(CopyWorld);
-				//system("pause>nul");
 				life(World);
-				//setcurse(0,0);
-				
+				system("clear");
 				puts("\n");
 			} while (l != 0);
 			return 0;
 		}
 	if(var==2){
-		system("cls");
+		system("clear");
 		rules();
-		system("pause>nul");
+		getchar();
 		main();
 		}
 	if(var==3){
