@@ -9,6 +9,5 @@ struct Point {
 
 struct Point World[WorldH][WorldW] = { 0 };
 struct Point CopyWorld[WorldH][WorldW] = { 0 };
-//struct Point life [WorldH][WorldW] = { 0 }
 
 #endif 

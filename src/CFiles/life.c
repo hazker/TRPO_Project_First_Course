@@ -1,10 +1,6 @@
-#ifndef LIFE_H
-#define LIFE_H
 #include "struct.h"
 
-
-
-void life(struct Point world[WorldH][WorldW]) {
+int life(struct Point world[WorldH][WorldW]) {
 	int l = 0;
 	int h,w;
 	for (h = 0; h<WorldW; h++) {
@@ -45,7 +41,5 @@ void life(struct Point world[WorldH][WorldW]) {
 			}
 		}
 	}
-	//system("pause>nul");
+	return l;
 }
-
-#endif 

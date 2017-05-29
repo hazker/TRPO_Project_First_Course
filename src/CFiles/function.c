@@ -21,7 +21,7 @@ int initWorld(struct Point world[WorldH][WorldW]) {
 	}
 	return 0;
 }
-void PrintWorld(struct Point world[WorldH][WorldW]) {
+int PrintWorld(struct Point world[WorldH][WorldW]) {
 	int h,w;
 	for (h = 0; h<WorldW; h++) {
 		for (w = 0; w<WorldH; w++) {
@@ -34,6 +34,7 @@ void PrintWorld(struct Point world[WorldH][WorldW]) {
 		}
 		printf("\n");
 	}
+	return 0;
 }
 
 int Count(struct Point world[WorldH][WorldW]) {
@@ -48,13 +49,14 @@ int Count(struct Point world[WorldH][WorldW]) {
 	}
 	return count;
 }
-void CopyPaste() {
+int CopyPaste(struct Point copyworld[WorldH][WorldW],struct Point world[WorldH][WorldW]) {
 	int h,w;
 	for (h = 0; h<WorldW; h++) {
 		for (w = 0; w<WorldH; w++) {
-			CopyWorld[h][w] = World[h][w];
+			copyworld[h][w] = world[h][w];
 		}
 	}
+	return 0;
 }
 
 

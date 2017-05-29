@@ -21,7 +21,7 @@ int main() {
 		initWorld(World);
 		l = Count(World);
 			do {
-				CopyPaste();
+				CopyPaste(CopyWorld,World);
 				PrintWorld(CopyWorld);
 				//system("pause>nul");
 				life(World);
