@@ -8,6 +8,7 @@ CTEST(Cheak, InitWorld)
     int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(Cheak, PrintWorld)
 {
 	initWorld(World);
@@ -15,6 +16,7 @@ CTEST(Cheak, PrintWorld)
     int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(Cheak, CopyPast)
 {
 	initWorld(World);
@@ -22,6 +24,7 @@ CTEST(Cheak, CopyPast)
     int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(Cheak, LogicLifeFor2)
 {
 	initWorld(World);
@@ -30,6 +33,7 @@ CTEST(Cheak, LogicLifeFor2)
     int expected = 2;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(Cheak, LogicLife3)
 {
 	initWorld(World);
@@ -37,7 +41,8 @@ CTEST(Cheak, LogicLife3)
     int expected = 3;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(Cheak, LogicLifeNotLife)
+
+CTEST(Cheak, LogicLifeNotLifeFail)
 {
 	initWorld(World);
   	int result = life(World);
