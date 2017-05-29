@@ -2,6 +2,8 @@
 //#include "struct.h"//?
 #include "ctest.h"
 
+#include <stdio.h>
+
 CTEST(Cheak, InitWorld)
 {
   	int result = initWorld(World);
@@ -41,7 +43,6 @@ CTEST(Cheak, LogicLife3)
     int expected = 3;
     ASSERT_EQUAL(expected, result);
 }
-
 CTEST(Cheak, LogicLifeNotLifeFail)
 {
 	initWorld(World);

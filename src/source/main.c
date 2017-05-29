@@ -7,21 +7,8 @@
 
 int var=0;
 int main() {
-		while(1){
-		
-		printf("Menu\n");
-		printf("1.Play\n");
-		printf("2.Rules of the game\n");
-		printf("3.Exit\n");
-		printf("Select the menu item: ");
-		scanf("%d", &var);
-		if(var>0 && var<4)break;
-		else{
-			printf("The wrong menu item is selected, press any button to continue\n");
-			//system("pause>nul");
-		}
-	}
-	//menu();
+	int var=0;
+	menu(var);
 	srand(time(0));
 	int l = 0;
 	while(1){
