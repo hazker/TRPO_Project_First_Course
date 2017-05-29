@@ -51,4 +51,10 @@ CTEST(Cheak, LogicLifeNotLifeFail)
 	  }
     ASSERT_EQUAL(expected, result);
 }
+CTEST(Cheak, RulesOpenTrue)
+ {
+   	int result = rules();
+     int expected = 1;
+     ASSERT_EQUAL(expected, result);
+ }
 
