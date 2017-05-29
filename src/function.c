@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <time.h>
 #include "library.h"
 
@@ -56,7 +57,7 @@ void CopyPaste() {
 	}
 }
 
-void life(struct Point world[WorldH][WorldW]) {
+/*void life(struct Point world[WorldH][WorldW]) {
 	int l = 0;
 	int h,w;
 	for (h = 0; h<WorldW; h++) {
@@ -98,5 +99,5 @@ void life(struct Point world[WorldH][WorldW]) {
 		}
 	}
 	//system("pause>nul");
-}
+	}*/
 
