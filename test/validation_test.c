@@ -1,9 +1,39 @@
 #include "library.h"
+#include "struct.h"//?
 #include "ctest.h"
 
-CTEST(Cheak,InitWorld )
+CTEST(Cheak, InitWorld)
 {
-  const int result = initWorld(struct world[WorldH][WorldW]);
-    const int expected = 0;
+  	int result = initWorld(World);
+    int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
+CTEST(Cheak, PrintWorld)
+{
+	initWorld(World);
+  	int result = PrintWorld(World);
+    int expected = 0;
+    ASSERT_EQUAL(expected, result);
+}
+CTEST(Cheak, CopyPast)
+{
+	initWorld(World);
+  	int result = CopyPast(CopyWorld,World);
+    int expected = 0;
+    ASSERT_EQUAL(expected, result);
+}
+CTEST(Cheak, LogicLifeFor2)
+{
+	initWorld(World);
+  	int result = life(World);
+    int expected = 2;
+    ASSERT_EQUAL(expected, result);
+}
+CTEST(Cheak, LogicLife3)
+{
+	initWorld(World);
+  	int result = life(World);
+    int expected = 3;
+    ASSERT_EQUAL(expected, result);
+}
+
