@@ -1,12 +1,13 @@
 #include <stdio.h>
 #include <time.h>
-#include <windows.h>
-#include <windowsx.h>
+//#include <windows.h>
+//#include <windowsx.h>
+#include <stdlib.h>
 
-#include "struct.h"
+//#include "struct.h"
 #include "library.h"
 #include "function.c"
-#include "curse.c"
+//#include "curse.c"
 #include "menu.c"
 #include "rules.c"
 
@@ -24,8 +25,8 @@ int main() {
 				PrintWorld(CopyWorld);
 				//system("pause>nul");
 				life(World);
-				setcurse(0,0);
-				//system("cls");
+				//setcurse(0,0);
+				system("cls");
 				puts("\n");
 			} while (l != 0);
 			return 0;

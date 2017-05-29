@@ -1,7 +1,6 @@
 #ifndef LIFE_H
 #define LIFE_H
-#define WorldH 40
-#define WorldW 40
+#include "struct.h"
 
 
 
