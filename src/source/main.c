@@ -3,15 +3,12 @@
 //#include <windows.h>
 //#include <windowsx.h>
 #include <stdlib.h>
-#include "function.c"
-#include "life.c"
-#include "menu.c"
-#include "rules.c"
+#include "library.h"
 
 int var=0;
 int main() {
 		while(1){
-		system("cls");
+		
 		printf("Menu\n");
 		printf("1.Play\n");
 		printf("2.Rules of the game\n");
@@ -38,7 +35,7 @@ int main() {
 				//system("pause>nul");
 				life(World);
 				//setcurse(0,0);
-				system("cls");
+				
 				puts("\n");
 			} while (l != 0);
 			return 0;

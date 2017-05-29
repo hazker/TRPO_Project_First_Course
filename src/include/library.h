@@ -9,6 +9,7 @@ int CopyWorld[WorldH][WorldW];
 int initWorld(int world[WorldH][WorldW]);
 int PrintWorld(int world[WorldH][WorldW]);
 int menu();
+void curse(int XPos, int YPos);
 void rules();
 int Count(int world[WorldH][WorldW]);
 int CopyPaste(int copyworld[WorldH][WorldW],int world[WorldH][WorldW]);

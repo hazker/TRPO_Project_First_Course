@@ -1,5 +1,5 @@
 
-
+#include "library.h"
 int life(int world[WorldH][WorldW]) {
 	int l = 0;
 	int h,w;
