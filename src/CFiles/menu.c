@@ -1,6 +1,6 @@
 #include <stdio.h>
-int var=0;
-int menu(){
+
+int menu(int var){
 	while(1){
 		system("cls");
 		printf("Menu\n");

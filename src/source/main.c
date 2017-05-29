@@ -12,7 +12,8 @@
 #include "rules.c"
 
 int main() {
-	menu();
+	int var=0;
+	menu(var);
 	srand(time(0));
 	int l = 0;
 	while(1){
