@@ -3,13 +3,28 @@
 //#include <windows.h>
 //#include <windowsx.h>
 #include <stdlib.h>
-#include "library.h"
+#include "function.c"
+#include "life.c"
+#include "menu.c"
+#include "rules.c"
 
-
-
-int main() {
 int var=0;
-	menu(var);
+int main() {
+		while(1){
+		system("cls");
+		printf("Menu\n");
+		printf("1.Play\n");
+		printf("2.Rules of the game\n");
+		printf("3.Exit\n");
+		printf("Select the menu item: ");
+		scanf("%d", &var);
+		if(var>0 && var<4)break;
+		else{
+			printf("The wrong menu item is selected, press any button to continue\n");
+			//system("pause>nul");
+		}
+	}
+	//menu();
 	srand(time(0));
 	int l = 0;
 	while(1){
@@ -32,7 +47,7 @@ int var=0;
 		system("cls");
 		rules();
 		system("pause>nul");
-		menu(var);
+		main();
 		}
 	if(var==3){
 		return 0;

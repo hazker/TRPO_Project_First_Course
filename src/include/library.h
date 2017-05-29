@@ -3,20 +3,16 @@
 #define WorldH 40
 #define WorldW 40
 
-struct Point {
-	unsigned live : 1;
-};
+int World[WorldH][WorldW];
+int CopyWorld[WorldH][WorldW];
 
-struct Point World[WorldH][WorldW] = { 0 };
-struct Point CopyWorld[WorldH][WorldW] = { 0 };
-
-int initWorld(struct Point world[WorldH][WorldW]);
-int PrintWorld(struct Point world[WorldH][WorldW]);
-int menu(int var);
+int initWorld(int world[WorldH][WorldW]);
+int PrintWorld(int world[WorldH][WorldW]);
+int menu();
 void rules();
-int Count(struct Point world[WorldH][WorldW]);
-int CopyPaste(struct Point copyworld[WorldH][WorldW],struct Point world[WorldH][WorldW]);
-int life(struct Point world[WorldH][WorldW]);
+int Count(int world[WorldH][WorldW]);
+int CopyPaste(int copyworld[WorldH][WorldW],int world[WorldH][WorldW]);
+int life(int world[WorldH][WorldW]);
 
 #endif
 
