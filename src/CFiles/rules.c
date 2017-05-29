@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include "library.h"
 #define N 80
 
 int rules(){

@@ -1,5 +1,5 @@
 #include "library.h"
-#include "struct.h"//?
+//#include "struct.h"//?
 #include "ctest.h"
 
 #include <stdio.h>
@@ -10,6 +10,7 @@ CTEST(Cheak, InitWorld)
     int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(Cheak, PrintWorld)
 {
 	initWorld(World);
@@ -17,6 +18,7 @@ CTEST(Cheak, PrintWorld)
     int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(Cheak, CopyPast)
 {
 	initWorld(World);
@@ -24,13 +26,16 @@ CTEST(Cheak, CopyPast)
     int expected = 0;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(Cheak, LogicLifeFor2)
 {
 	initWorld(World);
   	int result = life(World);
+
     int expected = 2;
     ASSERT_EQUAL(expected, result);
 }
+
 CTEST(Cheak, LogicLife3)
 {
 	initWorld(World);
@@ -38,18 +43,19 @@ CTEST(Cheak, LogicLife3)
     int expected = 3;
     ASSERT_EQUAL(expected, result);
 }
-CTEST(Cheak, LogicLifeFail)
+CTEST(Cheak, LogicLifeNotLifeFail)
 {
 	initWorld(World);
   	int result = life(World);
-  	if(result<=1&&result>=4){
-  		int expected = result;
-	}
+  	if(result<=1 || resul>=4){
+  		int expected=result ;
+	  }
     ASSERT_EQUAL(expected, result);
 }
 CTEST(Cheak, RulesOpenTrue)
-{
-  	int result = rules();
-    int expected = 1;
-    ASSERT_EQUAL(expected, result);
-}
+ {
+   	int result = rules();
+     int expected = 1;
+     ASSERT_EQUAL(expected, result);
+ }
+

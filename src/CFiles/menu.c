@@ -1,5 +1,6 @@
 #include <stdio.h>
 
+
 int menu(int var){
 	while(1){
 		system("cls");

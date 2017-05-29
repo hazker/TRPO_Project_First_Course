@@ -1,43 +1,43 @@
-#include "struct.h"
 
-int life(struct Point world[WorldH][WorldW]) {
+#include "library.h"
+int life(int world[WorldH][WorldW]) {
 	int l = 0;
 	int h,w;
 	for (h = 0; h<WorldW; h++) {
 		for (w = 0; w<WorldH; w++) {
 			l = 0;
-			if (CopyWorld[h - 1][w - 1].live == 1 && (h - 1) > 0 && (w - 1) > 0) {
+			if (CopyWorld[h - 1][w - 1] == 1 && (h - 1) > 0 && (w - 1) > 0) {
 				l++;
 			}
-			if (CopyWorld[h][w - 1].live == 1 && (w - 1) > 0) {
+			if (CopyWorld[h][w - 1] == 1 && (w - 1) > 0) {
 				l++;
 			}
-			if (CopyWorld[h + 1][w - 1].live == 1 && (h + 1) < WorldH && (w - 1) > 0) {
+			if (CopyWorld[h + 1][w - 1] == 1 && (h + 1) < WorldH && (w - 1) > 0) {
 				l++;
 			}
-			if (CopyWorld[h + 1][w].live == 1 && (h + 1) < WorldH) {
+			if (CopyWorld[h + 1][w] == 1 && (h + 1) < WorldH) {
 				l++;
 			}
-			if (CopyWorld[h + 1][w + 1].live == 1 && (h + 1) < WorldH && (w + 1) < WorldW) {
+			if (CopyWorld[h + 1][w + 1] == 1 && (h + 1) < WorldH && (w + 1) < WorldW) {
 				l++;
 			}
-			if (CopyWorld[h][w + 1].live == 1 && (w + 1) < WorldH) {
+			if (CopyWorld[h][w + 1] == 1 && (w + 1) < WorldH) {
 				l++;
 			}
-			if (CopyWorld[h - 1][w + 1].live == 1 && (h - 1) > 0 && (w + 1) < WorldW) {
+			if (CopyWorld[h - 1][w + 1] == 1 && (h - 1) > 0 && (w + 1) < WorldW) {
 				l++;
 			}
-			if (CopyWorld[h - 1][w].live == 1 && (h - 1) > 0) {
+			if (CopyWorld[h - 1][w] == 1 && (h - 1) > 0) {
 				l++;
 			}
-			if (l>2 && CopyWorld[h][w].live == 0) {
-				World[h][w].live = 1;
+			if (l>2 && CopyWorld[h][w] == 0) {
+				World[h][w] = 1;
 			}
-			if ((l >= 2 && l <= 3) && CopyWorld[h][w].live == 1) {
-				World[h][w].live = 1;
+			if ((l >= 2 && l <= 3) && CopyWorld[h][w] == 1) {
+				World[h][w] = 1;
 			}
-			if ((l >= 4 || l <= 1) && CopyWorld[h][w].live == 1) {
-				World[h][w].live = 0;
+			if ((l >= 4 || l <= 1) && CopyWorld[h][w] == 1) {
+				World[h][w] = 0;
 			}
 		}
 	}

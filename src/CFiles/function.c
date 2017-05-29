@@ -3,7 +3,7 @@
 #include <time.h>
 #include "library.h"
 
-int initWorld(struct Point world[WorldH][WorldW]) {
+int initWorld(int world[WorldH][WorldW]) {
 	int h,w;
 	for (h = 0; h<WorldW; h++) {
 		for (w = 0; w<WorldH; w++) {
@@ -11,21 +11,22 @@ int initWorld(struct Point world[WorldH][WorldW]) {
 			if (rn == 1) {
 				rn = rand() % 7;
 				if (rn == 1) {
-					world[h][w].live = 1;
+					world[h][w]= 1;
 				}
 				else {
-					world[h][w].live = 0;
+					world[h][w] = 0;
 				}
 			}
 		}
 	}
 	return 0;
 }
-int PrintWorld(struct Point world[WorldH][WorldW]) {
+
+int PrintWorld(int world[WorldH][WorldW]) {
 	int h,w;
 	for (h = 0; h<WorldW; h++) {
 		for (w = 0; w<WorldH; w++) {
-			if (world[h][w].live == 1) {
+			if (world[h][w]== 1) {
 				printf("#");
 			}
 			else {
@@ -37,19 +38,19 @@ int PrintWorld(struct Point world[WorldH][WorldW]) {
 	return 0;
 }
 
-int Count(struct Point world[WorldH][WorldW]) {
+int Count(int world[WorldH][WorldW]) {
 	int count = 0;
 	int i, j;
 	for (i = 0; i<WorldW; i++) {
 		for (j = 0; j<WorldH; j++) {
-			if (world[i][j].live == 1) {
+			if (world[i][j] == 1) {
 				count++;
 			}
 		}
 	}
 	return count;
 }
-int CopyPaste(struct Point copyworld[WorldH][WorldW],struct Point world[WorldH][WorldW]) {
+int CopyPaste(int copyworld[WorldH][WorldW],int world[WorldH][WorldW]) {
 	int h,w;
 	for (h = 0; h<WorldW; h++) {
 		for (w = 0; w<WorldH; w++) {

@@ -1,13 +1,19 @@
 #ifndef LIBRARY_H
 #define LIBRARY_H
+#define WorldH 40
+#define WorldW 40
 
-#include "struct.h"
+int World[WorldH][WorldW];
+int CopyWorld[WorldH][WorldW];
 
-int initWorld(struct Point world[WorldH][WorldW]);
-int PrintWorld(struct Point world[WorldH][WorldW]);
-int Count(struct Point world[WorldH][WorldW]);
-void CopyPaste();
-int life(struct Point world[WorldH][WorldW]);
+int initWorld(int world[WorldH][WorldW]);
+int PrintWorld(int world[WorldH][WorldW]);
+int menu();
+void curse(int XPos, int YPos);
+void rules();
+int Count(int world[WorldH][WorldW]);
+int CopyPaste(int copyworld[WorldH][WorldW],int world[WorldH][WorldW]);
+int life(int world[WorldH][WorldW]);
 
 #endif
 
