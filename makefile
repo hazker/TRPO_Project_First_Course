@@ -13,26 +13,23 @@ all: makedir compile test
 makedir:
 	mkdir -p bin build
 
-compile: $(SRC_BUILD_DIR)/main.o $(SRC_BUILD_DIR)/library.o $(SRC_BUILD_DIR)/curse.o $(SRC_BUILD_DIR)/function.o $(SRC_BUILD_DIR)/life.o $(SRC_BUILD_DIR)/struct.h
-	$(CC) $(SRC_BUILD_DIR)/main.o $(SRC_BUILD_DIR)/library.o $(SRC_BUILD_DIR)/function.o $(SRC_BUILD_DIR)/life.o $(SRC_BUILD_DIR)/swtruct.h-o $(EXECUTABLE)
+compile: $(SRC_BUILD_DIR)/main.o $(SRC_BUILD_DIR)/function.o $(SRC_BUILD_DIR)/life.o
+	$(CC) $(SRC_BUILD_DIR)/main.o $(SRC_BUILD_DIR)/function.o $(SRC_BUILD_DIR)/life.o -o $(EXECUTABLE)
 
 $(SRC_BUILD_DIR)/main.o: $(SRC_DIR)/main.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/main.c -o $(SRC_BUILD_DIR)/main.o
 
-$(SRC_BUILD_DIR)/library.o: $(SRC_DIR)/library.h
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/library.h -o $(SRC_BUILD_DIR)/library.o
+#$(SRC_BUILD_DIR)/library.o: $(SRC_DIR)/library.h
+#	$(CC) $(CFLAGS) -c $(SRC_DIR)/library.h -o $(SRC_BUILD_DIR)/library.o
 
-##$(SRC_BUILD_DIR)/curse.o: $(SRC_DIR)/curse.c
-##	$(CC) $(CFLAGS) -c $(SRC_DIR)/curse.c -o $(SRC_BUILD_DIR)/curse.o
-
-$(SRC_BUILD_DIR)/curse.o: $(SRC_DIR)/function.c
+$(SRC_BUILD_DIR)/function.o: $(SRC_DIR)/function.c
 	$(CC) $(CFLAGS) -c $(SRC_DIR)/function.c -o $(SRC_BUILD_DIR)/function.o
 
-$(SRC_BUILD_DIR)/curse.o: $(SRC_DIR)/life.h
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/life.h -o $(SRC_BUILD_DIR)/life.o
+$(SRC_BUILD_DIR)/life.o: $(SRC_DIR)/life.c
+	$(CC) $(CFLAGS) -c $(SRC_DIR)/life.c -o $(SRC_BUILD_DIR)/life.o
 
-$(SRC_BUILD_DIR)/struct.o: $(SRC_DIR)/struct.h
-	$(CC) $(CFLAGS) -c $(SRC_DIR)/struct.h -o $(SRC_BUILD_DIR)/struct.o
+#$(SRC_BUILD_DIR)/struct.o: $(SRC_DIR)/struct.h
+#	$(CC) $(CFLAGS) -c $(SRC_DIR)/struct.h -o $(SRC_BUILD_DIR)/struct.o
 
 mktest:
 	mkdir -p bin build/test
