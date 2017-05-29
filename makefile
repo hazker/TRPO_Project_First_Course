@@ -1,7 +1,7 @@
 
 CC               = gcc
 CFLAGS           = -I src/CFiles -I src/include -Wall -Werror
-TEST_FLAGS       = -I src -I thirdparty -I src/include -Wall -Werror
+TEST_FLAGS       = -I thirdparty -I src/include -I src/CFiles -Wall -Werror
 EXECUTABLE       = bin/program
 SRC_BUILD_DIR    = build
 SRC_DIR          = src
@@ -41,14 +41,12 @@ test:mktest test-compile
 mktest:
 	mkdir -p bin build/test
 
-test-compile: $(TEST_OBJ_DIR)/main.o  $(TEST_OBJ_DIR)/validation_test.o $(SRC_BUILD_DIR)/function.o
-	$(CC) $(TEST_OBJ_DIR)/main.o  $(TEST_OBJ_DIR)/validation_test.o $(SRC_BUILD_DIR)/function.o -o $(TEST_EXECUTABLE)
+test-compile: $(TEST_OBJ_DIR)/main.o  $(TEST_OBJ_DIR)/validation_test.o $(SRC_BUILD_DIR)/rules.o
+	$(CC) $(TEST_OBJ_DIR)/main.o  $(TEST_OBJ_DIR)/validation_test.o $(SRC_BUILD_DIR)/rules.o -o $(TEST_EXECUTABLE)
 
 $(TEST_OBJ_DIR)/main.o: test/main.c
 	$(CC) $(TEST_FLAGS) -c test/main.c -o $(TEST_OBJ_DIR)/main.o
 
-#$(TEST_OBJ_DIR)/library_test.o: test/library_test.c
-#	$(CC) $(TEST_FLAGS) -c test/library_test.c -o $(TEST_OBJ_DIR)/library_test.o
 
 $(TEST_OBJ_DIR)/validation_test.o: test/validation_test.c
 	$(CC) $(TEST_FLAGS) -c test/validation_test.c -o $(TEST_OBJ_DIR)/validation_test.o
