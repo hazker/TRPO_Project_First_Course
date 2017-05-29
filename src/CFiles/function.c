@@ -21,6 +21,7 @@ int initWorld(struct Point world[WorldH][WorldW]) {
 	}
 	return 0;
 }
+
 int PrintWorld(struct Point world[WorldH][WorldW]) {
 	int h,w;
 	for (h = 0; h<WorldW; h++) {

@@ -1,8 +1,9 @@
 #include <stdio.h>
-int var=0;
-int menu(){
+#include "library.h"
+
+int menu(int var){
 	while(1){
-		system("cls");
+		//system("cls");
 		printf("Menu\n");
 		printf("1.Play\n");
 		printf("2.Rules of the game\n");
@@ -12,7 +13,7 @@ int menu(){
 		if(var>0 && var<4)break;
 		else{
 			printf("The wrong menu item is selected, press any button to continue\n");
-			system("pause>nul");
+			//system("pause>nul");
 		}
 	}
 	return 0;
