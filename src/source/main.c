@@ -3,16 +3,13 @@
 //#include <windows.h>
 //#include <windowsx.h>
 #include <stdlib.h>
-
-//#include "struct.h"
 #include "library.h"
-#include "function.c"
-//#include "curse.c"
-#include "menu.c"
-#include "rules.c"
+
+
 
 int main() {
-	menu();
+int var=0;
+	menu(var);
 	srand(time(0));
 	int l = 0;
 	while(1){
@@ -35,7 +32,7 @@ int main() {
 		system("cls");
 		rules();
 		system("pause>nul");
-		menu();
+		menu(var);
 		}
 	if(var==3){
 		return 0;
