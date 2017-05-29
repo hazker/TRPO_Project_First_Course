@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define N 80
 
-void rules(){
+int rules(){
 	char str[N];
 	FILE *f;
 	f=fopen("rules/rules.txt","r");
@@ -9,4 +9,8 @@ void rules(){
 		printf("%s",str);
 		printf("\n");
 		fclose(f);
+		return 1;
+	if(fgets(str,N,f))==NULL){
+		return 0;
+	}
 }
