@@ -2,7 +2,6 @@
 
 #include "ctest.h"
 
-
 /*
 CTEST(Cheak, InitWorld)
 {
