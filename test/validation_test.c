@@ -2,11 +2,11 @@
 
 #include "ctest.h"
 
-int orld[40][40]={0};
 
+/*
 CTEST(Cheak, InitWorld)
 {
-	int result = initWorld(world);
+	int result = initWorld(World);
 	int expected = 0;
 	ASSERT_EQUAL(expected, result);
 }
@@ -19,13 +19,13 @@ CTEST(Cheak, PrintWorld)
 	ASSERT_EQUAL(expected, result);
 }
 
-/*CTEST(Cheak, CopyPast)
+CTEST(Cheak, CopyPast)
 {
 	initWorld(World);
 	int result = CopyPast(CopyWorld,World);
 	int expected = 0;
 	ASSERT_EQUAL(expected, result);
-}*/
+}
 
 CTEST(Cheak, LogicLifeFor2)
 {
@@ -51,7 +51,7 @@ CTEST(Cheak, LogicLifeNotLifeFail)
   	if(result<=1 || result>=4){
 	expected=result ;}
 	ASSERT_EQUAL(expected, result);
-}
+}*/
 CTEST(Cheak, RulesOpenTrue)
  {
 	int result = rules();
