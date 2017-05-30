@@ -2,6 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include "library.h"
+#include <unistd.h>
 
 int var=0;
 int main() {
@@ -32,6 +33,7 @@ int main() {
 				CopyPaste(CopyWorld,World);
 				PrintWorld(CopyWorld);
 				life(World);
+				sleep(0.6);
 				system("clear");
 				puts("\n");
 			} while (l != 0);
