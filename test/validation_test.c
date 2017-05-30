@@ -2,11 +2,10 @@
 
 #include "ctest.h"
 
-/*int orld[40][40]={0};
-
+/*
 CTEST(Cheak, InitWorld)
 {
-	int result = initWorld(world);
+	int result = initWorld(World);
 	int expected = 0;
 	ASSERT_EQUAL(expected, result);
 }
